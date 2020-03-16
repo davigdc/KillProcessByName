@@ -11,7 +11,7 @@ const getTasklist = async () => {
   console.log("Done!");
 
   tasks.forEach(task => {
-    if (task.memUsage < 5000000) {
+    if (task.memUsage < 10000000) {
       if (
         task.imageName == "" ||
         task.imageName.toLowerCase().includes(process)
