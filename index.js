@@ -38,14 +38,14 @@ const createLog = async task => {
   let today = new Date();
 
   let date =
-    today.getFullYear() + "/" + (today.getMonth() + 1) + "/" + today.getDate();
+    today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
 
   let time =
     today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
   let string = `${date} - ${time} --> Process: ${processName} - memUsage: ${(
     task.memUsage * Math.pow(10, -6)
-  ).toFixed(2)} MB - cpuTime: ${task.cpuTime} - userName: ${task.username}\n`;
+  ).toFixed(2)} MB - cpuTime: ${task.cpuTime} - userName: ${task.username}\r\n`;
 
   await fs.writeFile(file, string, { flag: "a" }, function(err) {
     if (err) return console.log(err);
